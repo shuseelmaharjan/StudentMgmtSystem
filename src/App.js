@@ -9,6 +9,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Settings from './components/Settings/Settings';
 import AddCourse from './components/Courses/AddCourse';
 import ListCourse from './components/Courses/ListCourse';
+import Students from './components/Students/Students';
+import AddStudent from './components/Students/AddStudent';
+import ListTeachers from './components/Teachers/Teachers';
+import AddTeacher from './components/Teachers/AddTeacher';
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/add-course" element={<AddCourse />} />
           <Route path="/list-courses" element={<ListCourse />} />
+          <Route path="/list-students" element={<Students />} />
+          <Route path="/add-student" element={<AddStudent />} />
+          <Route path="/list-teachers" element={<ListTeachers />} />
+          <Route path="/add-teacher" element={<AddTeacher />} />
         </Routes>
       </Router>
     </SidebarProvider>
