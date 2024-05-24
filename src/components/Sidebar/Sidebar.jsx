@@ -9,15 +9,21 @@ import { GiTeacher } from "react-icons/gi";
 import { PiChalkboardTeacherFill } from "react-icons/pi";
 import { IoBookSharp } from "react-icons/io5";
 import { MdLibraryBooks } from "react-icons/md";
+import { SiGoogleclassroom } from "react-icons/si";
 
 const Sidebar = () => {
-  const { isSidebarOpen, isCourseSubmenuOpen, isStudentSubmenuOpen, toggleCourseSubmenu, toggleStudentSubmenu, toggleTeacherSubmenu, isTeacherSubmenuOpen } = useSidebar();
+  const { isSidebarOpen, 
+    isCourseSubmenuOpen, isStudentSubmenuOpen, 
+    toggleCourseSubmenu, toggleStudentSubmenu, 
+    toggleTeacherSubmenu, isTeacherSubmenuOpen, 
+    toggleClassSubMenu, isClassSubmenuOpen
+   } = useSidebar();
 
   return (
-    <div className={`fixed inset-y-0 left-0 ${isSidebarOpen ? 'w-64' : 'w-16'} bg-gray-800 text-white transition-all duration-300`}>
+    <div className={`fixed inset-y-0 left-0 ${isSidebarOpen ? 'w-64' : 'w-16'} bg-slate-900 text-white transition-all duration-300`}>
       <div className="flex items-center justify-center p-4 select-none">
         <div className="text-2xl font-bold">
-          {isSidebarOpen ? 'Std Mgmt System' : 'SMS'}
+          {isSidebarOpen ? 'SMS' : 'SMS'}
         </div>
       </div>
       <ul className="mt-4">
@@ -95,6 +101,28 @@ const Sidebar = () => {
                 <NavLink to="/add-teacher" className={({ isActive }) => isActive ? 'bg-yellow-500 p-2 block hover:bg-yellow-600' : 'p-2 block hover:bg-gray-700'} exact>
                   {isSidebarOpen ? <FaPlus className="inline-block mr-2 text-xl" /> : <FaPlus className='text-xl' />}
                   {isSidebarOpen && <span>Add Teacher</span>}
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li className="select-none">
+          <div onClick={toggleClassSubMenu} className='cursor-pointer p-2 block hover:bg-gray-700'>
+            {isSidebarOpen ? <SiGoogleclassroom  className="inline-block mr-2 text-xl" /> : <SiGoogleclassroom  className='text-xl' />}
+            {isSidebarOpen && ' Classes'}
+          </div>
+          <div className={`overflow-hidden transition-all duration-300 ${isClassSubmenuOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <ul className="pl-4">
+              <li>
+                <NavLink to="/list-classes" className={({ isActive }) => isActive ? 'bg-yellow-500 p-2 block hover:bg-yellow-600' : 'p-2 block hover:bg-gray-700'} exact>
+                  {isSidebarOpen ? <SiGoogleclassroom className="inline-block mr-2 text-xl" /> : <SiGoogleclassroom className='text-xl' />}
+                  {isSidebarOpen && <span>List Classroom</span>}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/add-class" className={({ isActive }) => isActive ? 'bg-yellow-500 p-2 block hover:bg-yellow-600' : 'p-2 block hover:bg-gray-700'} exact>
+                  {isSidebarOpen ? <FaPlus className="inline-block mr-2 text-xl" /> : <FaPlus className='text-xl' />}
+                  {isSidebarOpen && <span>Add Class</span>}
                 </NavLink>
               </li>
             </ul>

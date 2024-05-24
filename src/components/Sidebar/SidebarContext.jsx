@@ -7,6 +7,7 @@ export const SidebarProvider = ({ children }) => {
   const [isCourseSubmenuOpen, setIsCourseSubmenuOpen] = useState(false);
   const [isStudentSubmenuOpen, setIsStudentSubmenuOpen] = useState(false);
   const [isTeacherSubmenuOpen, setIsTeacherSubmenuOpen] = useState(false);
+  const [isClassSubmenuOpen, setIsClassSubmenuOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -22,9 +23,18 @@ export const SidebarProvider = ({ children }) => {
    const toggleTeacherSubmenu = () => {
     setIsTeacherSubmenuOpen((prev) => !prev);
    }
+   const toggleClassSubMenu = () => {
+    setIsClassSubmenuOpen((prev) => !prev);
+   }
 
   return (
-    <SidebarContext.Provider value={{ isSidebarOpen, toggleSidebar, isCourseSubmenuOpen, toggleCourseSubmenu, isStudentSubmenuOpen, toggleStudentSubmenu, isTeacherSubmenuOpen, toggleTeacherSubmenu}}>
+    <SidebarContext.Provider value={{ 
+      isSidebarOpen, toggleSidebar, 
+      isCourseSubmenuOpen, toggleCourseSubmenu, 
+      isStudentSubmenuOpen, toggleStudentSubmenu, 
+      isTeacherSubmenuOpen, toggleTeacherSubmenu,
+      isClassSubmenuOpen, toggleClassSubMenu
+      }}>
       {children}
     </SidebarContext.Provider>
   );

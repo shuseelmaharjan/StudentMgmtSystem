@@ -13,6 +13,8 @@ import Students from './components/Students/Students';
 import AddStudent from './components/Students/AddStudent';
 import ListTeachers from './components/Teachers/Teachers';
 import AddTeacher from './components/Teachers/AddTeacher';
+import AddClasses from './components/Classes/AddClass';
+import ListClasses from './components/Classes/Classes';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/add-student" element={<AddStudent />} />
           <Route path="/list-teachers" element={<ListTeachers />} />
           <Route path="/add-teacher" element={<AddTeacher />} />
+          <Route path="/add-class" element={<AddClasses />} />
+          <Route path="/list-classes" element={<ListClasses />} />
         </Routes>
       </Router>
     </SidebarProvider>
